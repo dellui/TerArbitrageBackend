@@ -1,0 +1,20 @@
+* Kraken
+* Coinbase
+* BitBay
+* Bitfinex
+* Bitstamp --> Non funziona riconoscimento. Cambiare CI
+* TheRock
+Exmo
+Bitlish --> Non supportato
+Quoine
+Liquid
+Bitsane
+Coinroom
+Cexio
+DSX
+EXRATES
+Ethfinex
+bitflip
+nexchange
+coinfalcon
+CryptoExchangeWS

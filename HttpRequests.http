@@ -1,0 +1,52 @@
+###
+GET http://localhost:8090/exchange/quotation
+user-name: dellui
+
+###
+GET http://localhost:8090/exchange/kraken/balance
+user-name: dellui
+
+###
+GET http://localhost:8090/exchange/kraken/quotation
+user-name: dellui
+
+###
+GET http://localhost:8090/exchange/binance/balance
+user-name: dellui
+
+###
+GET http://localhost:8090/exchange/binance/quotation
+user-name: dellui
+
+###
+GET http://localhost:8090/exchange/coinbase/balance
+user-name: dellui
+
+###
+GET http://localhost:8090/exchange/coinbase/quotation
+user-name: dellui
+
+
+###
+GET http://localhost:8090/exchange/bitfinex/balance
+user-name: dellui
+
+###
+GET http://localhost:8090/exchange/bitfinex/quotation
+user-name: dellui
+
+###
+GET http://localhost:8090/exchange/bitbay/balance
+user-name: dellui
+
+###
+GET http://localhost:8090/exchange/bitbay/quotation
+user-name: dellui
+
+###
+GET http://localhost:8090/exchange/therock/balance
+user-name: dellui
+
+###
+GET http://localhost:8090/exchange/therock/quotation
+user-name: dellui

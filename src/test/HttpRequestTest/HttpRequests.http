@@ -1,0 +1,18 @@
+# Da averificare: https://coinarbitragebot.com/market.php?ex=hotbit
+
+###
+GET http://localhost:8090/exchange/quotations/start
+user-name: dellui
+
+###
+GET http://localhost:8090/exchange/quotations/stop
+user-name: dellui
+
+###
+GET http://localhost:8090/exchange/candidates
+user-name: dellui
+
+###
+GET http://localhost:8090/arbitrage/live
+user-name: dellui
+{}
