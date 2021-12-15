@@ -1,18 +1,27 @@
 # Da averificare: https://coinarbitragebot.com/market.php?ex=hotbit
 
 ###
-GET http://localhost:8090/exchange/quotations/start
+GET http://localhost:3001/api/exchange/quotations/start
+user-name: dellui
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZWxsdWlAZ21haWwuY29tIiwiZnVsbE5hbWUiOiJHaWdpIERlbGxhIE1vbmljYSIsInJvbGUiOlsiVVNFUiJdLCJpYXQiOjE2Mzk1NTUxNDgsImV4cCI6MTYzOTU1ODc0OH0.8Fu0zA730cBjuIguVdpVW__manNpxA_eckvEhKDWZIQ
+
+###
+GET http://localhost:3001/api/exchange/quotations/stop
 user-name: dellui
 
 ###
-GET http://localhost:8090/exchange/quotations/stop
+GET http://localhost:3001/api/exchange/candidates
 user-name: dellui
 
 ###
-GET http://localhost:8090/exchange/candidates
-user-name: dellui
-
-###
-GET http://localhost:8090/arbitrage/live
+GET http://localhost:3001/api/arbitrage/live
 user-name: dellui
 {}
+
+###
+POST http://localhost:3001/api/auth/login
+Content-Type: application/json
+
+{
+"email":"dellui@gmail.com","password":"Pa$$w0rd","rememberMe":false
+}
