@@ -16,6 +16,7 @@
     <properties>
         <java.version>1.8</java.version>
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+        <xchange-version>5.0.13</xchange-version>
     </properties>
     <dependencies>
         <dependency>
@@ -55,74 +56,74 @@
         <dependency>
             <groupId>org.knowm.xchange</groupId>
             <artifactId>xchange-core</artifactId>
-            <version>5.0.12</version>
+            <version>${xchange-version}</version>
         </dependency>
         <dependency>
             <groupId>org.knowm.xchange</groupId>
             <artifactId>xchange-coinbase</artifactId>
-            <version>5.0.12</version>
+            <version>${xchange-version}</version>
         </dependency>
         <dependency>
             <groupId>org.knowm.xchange</groupId>
             <artifactId>xchange-kraken</artifactId>
-            <version>5.0.12</version>
+            <version>${xchange-version}</version>
         </dependency>
         <dependency>
             <groupId>org.knowm.xchange</groupId>
             <artifactId>xchange-binance</artifactId>
-            <version>5.0.12</version>
+            <version>${xchange-version}</version>
         </dependency>
         <dependency>
             <groupId>org.knowm.xchange</groupId>
             <artifactId>xchange-bitfinex</artifactId>
-            <version>5.0.12</version>
+            <version>${xchange-version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.knowm.xchange</groupId>
             <artifactId>xchange-bitbay</artifactId>
-            <version>5.0.12</version>
+            <version>${xchange-version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.knowm.xchange</groupId>
             <artifactId>xchange-therock</artifactId>
-            <version>5.0.12</version>
+            <version>${xchange-version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.knowm.xchange</groupId>
             <artifactId>xchange-bitstamp</artifactId>
-            <version>5.0.12</version>
+            <version>${xchange-version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.knowm.xchange</groupId>
             <artifactId>xchange-bitmex</artifactId>
-            <version>5.0.12</version>
+            <version>${xchange-version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.knowm.xchange</groupId>
             <artifactId>xchange-bleutrade</artifactId>
-            <version>5.0.12</version>
+            <version>${xchange-version}</version>
         </dependency>
         <dependency>
             <groupId>org.knowm.xchange</groupId>
             <artifactId>xchange-cexio</artifactId>
-            <version>5.0.12</version>
+            <version>${xchange-version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.knowm.xchange</groupId>
             <artifactId>xchange-coindirect</artifactId>
-            <version>5.0.12</version>
+            <version>${xchange-version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.knowm.xchange</groupId>
             <artifactId>xchange-poloniex</artifactId>
-            <version>5.0.12</version>
+            <version>${xchange-version}</version>
         </dependency>
 
         <dependency>
