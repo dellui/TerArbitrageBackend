@@ -29,6 +29,7 @@ import org.knowm.xchange.dto.account.Balance;
 import org.knowm.xchange.dto.account.Fee;
 import org.knowm.xchange.dto.marketdata.Ticker;
 import org.knowm.xchange.exceptions.ExchangeException;
+import org.knowm.xchange.instrument.Instrument;
 import org.knowm.xchange.kraken.KrakenExchange;
 import org.knowm.xchange.poloniex.PoloniexExchange;
 import org.knowm.xchange.service.account.AccountService;
@@ -206,18 +207,18 @@ public class ExchangeServiceImpl implements ExchangeService {
             List<ArbiExchange> arbiExchanges = arbiExchangeRepository.findAllByEnabled(1);
 
             for( ArbiExchange arbiExchange: arbiExchanges ) {
-                CurrencyPair pair = null;
-                Set<CurrencyPair> pairs = new HashSet<>();
+                Currency pair = null;
+                Set<Currency> pairs = new HashSet<>();
                 Exchange exchange = getExchange(arbiExchange);
 
                 try {
-                    for (CurrencyPair cp : exchange.getExchangeMetaData().getCurrencyPairs().keySet()) {
+                    for (Currency cp : exchange.getExchangeMetaData().getCurrencies().keySet()) {
                         pair = cp;
                         pairs.add(cp);
                     }
-                    List<Ticker> tickerList = exchange.getMarketDataService().getTickers((CurrencyPairsParam) () -> pairs);
+                    List<Ticker> tickerList = exchange.getMarketDataService().getTickers(null); // TODO: passare solo le coppie di valuta richiesta
                     for (Ticker ticker : tickerList) {
-                        decisionService.addTicker(exchange, ticker.getCurrencyPair().toString(), ticker);
+                        decisionService.addTicker(exchange, ticker.getInstrument().getBase().toString(), ticker);
                     }
                 } catch (Exception e) {
                     log.debug("Exchange Name: {} - Pair: {} - Last: {}", exchange != null ? exchange.getDefaultExchangeSpecification().getExchangeName() : "Unknown", pair != null ? pair.toString() : "unknown", "");
@@ -261,9 +262,9 @@ public class ExchangeServiceImpl implements ExchangeService {
             }
             try {
                 OptionsContract c;
-                Map<CurrencyPair, Fee> df = exchange.getAccountService().getDynamicTradingFees();
+                Map<Instrument, Fee> df = exchange.getAccountService().getDynamicTradingFeesByInstrument();
 
-                for (CurrencyPair cp : df.keySet()) {
+                for (Instrument cp : df.keySet()) {
                     Fee f = df.get(cp);
                     log.debug("{} - {}: MakerFee: {} TakerFee: {}", exchange.getExchangeSpecification().getExchangeName(), cp.toString(), f.getMakerFee(), f.getTakerFee());
                 }

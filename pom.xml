@@ -16,7 +16,7 @@
     <properties>
         <java.version>1.8</java.version>
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
-        <xchange-version>5.0.13</xchange-version>
+        <xchange-version>5.1.0</xchange-version>
     </properties>
     <dependencies>
         <dependency>
