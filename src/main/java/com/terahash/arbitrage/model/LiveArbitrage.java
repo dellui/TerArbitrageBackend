@@ -30,7 +30,7 @@ public class LiveArbitrage {
     @Column(name = "bleutrade")
     private Double bleutrade;
 
-    @Column(name = "`cex.it`")
+    @Column(name = "`cex_it`")
     private Double cexIt;
 
     @Column(name = "coinbase")

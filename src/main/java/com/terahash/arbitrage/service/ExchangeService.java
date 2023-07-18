@@ -3,8 +3,7 @@ package com.terahash.arbitrage.service;
 import com.terahash.arbitrage.model.ArbiExchange;
 import com.terahash.arbitrage.model.LiveArbitrage;
 import org.knowm.xchange.Exchange;
-import org.springframework.data.jpa.datatables.mapping.DataTablesInput;
-import org.springframework.data.jpa.datatables.mapping.DataTablesOutput;
+
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.io.IOException;
@@ -26,6 +25,4 @@ public interface ExchangeService {
     org.knowm.xchange.Exchange getExchange(ArbiExchange arbiExchange) throws IOException;
 
     void dumpExchageWithdrawFee(Exchange exchange) throws IOException;
-
-    DataTablesOutput<LiveArbitrage> getLiveArbitrage(String username, DataTablesInput input);
 }

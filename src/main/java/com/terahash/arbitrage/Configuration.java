@@ -7,7 +7,6 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
-import org.springframework.data.jpa.datatables.repository.DataTablesRepositoryFactoryBean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
@@ -39,7 +38,6 @@ import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 @org.springframework.context.annotation.Configuration
 @EnableSwagger2
 @EnableAsync
-@EnableJpaRepositories(repositoryFactoryBeanClass = DataTablesRepositoryFactoryBean.class)
 public class Configuration {
 
     @Bean
@@ -60,21 +58,12 @@ public class Configuration {
     }
 
     @Bean
-    public Docket api(Environment environment) {
+    public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .securitySchemes(singletonList(new ApiKey("JWT", AUTHORIZATION, HEADER.name())))
-                .securityContexts(singletonList(SecurityContext.builder().securityReferences(
-                        singletonList(SecurityReference.builder()
-                                .reference("JWT")
-                                .scopes(new AuthorizationScope[0])
-                                .build()
-                        )).build())
-                )
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.terahash.arbitrage"))
+                .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())
-                .build().enable(environment.getProperty("swagger.enable", Boolean.class, false))
-                .apiInfo(apiInfo());
+                .build();
     }
 
     private ApiInfo apiInfo() {

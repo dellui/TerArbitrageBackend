@@ -4,7 +4,6 @@ import com.terahash.arbitrage.model.ArbiExchange;
 import com.terahash.arbitrage.model.LiveArbitrage;
 import com.terahash.arbitrage.repository.ArbiExchangeRepository;
 import com.terahash.arbitrage.repository.CoinRepository;
-import com.terahash.arbitrage.repository.LiveArbitrageRepository;
 import com.terahash.arbitrage.service.ArbiSymbolTableService;
 import com.terahash.arbitrage.service.ConfigService;
 import com.terahash.arbitrage.service.DecisionService;
@@ -36,8 +35,7 @@ import org.knowm.xchange.service.account.AccountService;
 import org.knowm.xchange.service.marketdata.params.CurrencyPairsParam;
 import org.knowm.xchange.therock.TheRockExchange;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.datatables.mapping.DataTablesInput;
-import org.springframework.data.jpa.datatables.mapping.DataTablesOutput;
+
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -68,9 +66,6 @@ public class ExchangeServiceImpl implements ExchangeService {
     ConfigService configService;
     @Autowired
     ArbiSymbolTableService arbiSymbolTableService;
-
-    @Autowired
-    LiveArbitrageRepository liveArbitrageRepository;
 
     private boolean isEnableQuotation = false;
 
@@ -272,12 +267,6 @@ public class ExchangeServiceImpl implements ExchangeService {
                 log.debug("{} - getDynamicTradingFees: Unsopported ", exchange != null ? exchange.getExchangeSpecification().getExchangeName() : "Unknown");
             }
         }
-    }
-
-    @Override
-    public DataTablesOutput<LiveArbitrage>  getLiveArbitrage(String username, DataTablesInput input) {
-        DataTablesOutput<LiveArbitrage> liveArbitrageList = liveArbitrageRepository.findAll(input);
-        return liveArbitrageList;
     }
 
 }

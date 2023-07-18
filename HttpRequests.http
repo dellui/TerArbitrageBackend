@@ -48,5 +48,9 @@ GET http://localhost:8090/exchange/therock/balance
 user-name: dellui
 
 ###
-GET http://localhost:8090/exchange/therock/quotation
+GET http://localhost:3001/exchange/therock/quotation
+user-name: dellui
+
+###
+GET http://localhost:3001/exchange/quotations/start
 user-name: dellui
